@@ -1,0 +1,4 @@
+langchain
+langchain-aws
+faiss-cpu
+boto3
