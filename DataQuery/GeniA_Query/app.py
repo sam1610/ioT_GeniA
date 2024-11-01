@@ -11,6 +11,12 @@ def timestream_app():
     # Query data from AWS TimeStream
     response = query_timestream_data()
     df = timestream_response_to_dataframe(response)
+    # df['time'] = pd.to_datetime(df['time'])
+    # df = df.pivot(index='time', columns=[['sensor_type', "location"]], values='value')
+
+# Reset the index to turn device_id into a column
+    # df.reset_index(inplace=True)
+
 
     if df.empty:
         st.warning("No data found in TimeStream table.")

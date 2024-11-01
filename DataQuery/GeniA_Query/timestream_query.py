@@ -9,7 +9,7 @@ def get_timestream_client():
 # Function to query data from AWS TimeStream
 def query_timestream_data():
     query_string = """
-    SELECT * FROM "ioTestDB"."ioTestTB"
+    SELECT * FROM "ioTestDB"."MultiDimData"
     """
     try:
         timestream_client = get_timestream_client()

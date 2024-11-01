@@ -13,7 +13,8 @@ def generate_insights_with_bedrock(user_query, data):
         bedrock_llm = BedrockLLM(model_id="amazon.titan-text-premier-v1:0", client=bedrock_client)
         
         # Create a prompt to generate insights based on the queried data
-        prompt = f"full reply to {user_query} : {data.to_string(index=False)}"
+        resp="You are a data expert responsible for providing precise and concise answers to user questions based solely on the data provided. When a user asks a question, respond only with the direct answer extracted from the data. Do not give any instructions, explanations, or code. Your goal is to deliver the exact information requested in a clear and straightforward manner. "
+        prompt = f"{resp}{user_query} : {data.to_string(index=False)}"
         response = bedrock_llm.invoke(prompt)
         return response
     except Exception as e:
